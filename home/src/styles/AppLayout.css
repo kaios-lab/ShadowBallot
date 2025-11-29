@@ -1,0 +1,57 @@
+.app-shell {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #05060a 0%, #0e1220 100%);
+  padding-bottom: 4rem;
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+  color: #f4f7ff;
+}
+
+.section-card {
+  background: rgba(9, 12, 24, 0.9);
+  border-radius: 1rem;
+  border: 1px solid rgba(100, 108, 255, 0.35);
+  box-shadow: 0 20px 40px rgba(5, 6, 10, 0.5);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.grid-two-column {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .grid-two-column {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+.muted-text {
+  color: rgba(244, 247, 255, 0.7);
+}
+
+.error-banner {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 99, 71, 0.15);
+  border: 1px solid rgba(255, 99, 71, 0.5);
+  color: #ffb59f;
+  font-size: 0.95rem;
+}
+
+.success-banner {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #86f7b5;
+  font-size: 0.95rem;
+}

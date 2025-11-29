@@ -1,0 +1,93 @@
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-heading {
+  margin-bottom: 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-size: 0.95rem;
+  color: rgba(244, 247, 255, 0.8);
+  font-weight: 500;
+}
+
+.form-field input,
+.form-field textarea {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(6, 9, 20, 0.6);
+  color: #f4f7ff;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: rgba(129, 140, 248, 0.8);
+  outline: none;
+  background: rgba(8, 12, 28, 0.8);
+}
+
+.options-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.option-input {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.option-input input {
+  flex: 1;
+}
+
+.option-input button {
+  padding: 0.5rem;
+  border-radius: 0.6rem;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: rgba(244, 247, 255, 0.9);
+  cursor: pointer;
+}
+
+.add-option-btn {
+  margin-top: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.6rem;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.8);
+  color: #dbeafe;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.submit-button {
+  margin-top: 0.5rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 0.85rem;
+  border: none;
+  background: linear-gradient(120deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
