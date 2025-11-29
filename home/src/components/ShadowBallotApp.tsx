@@ -10,7 +10,7 @@ import { useZamaInstance } from '../hooks/useZamaInstance';
 import { useEthersSigner } from '../hooks/useEthersSigner';
 import { shadowBallotAbi } from '../config/shadowBallotAbi';
 import { SHADOW_BALLOT_ADDRESS, SHADOW_BALLOT_CHAIN_ID } from '../config/contract';
-import type { Poll, PollStatus } from '../types/poll';
+import type { Poll, PollStatus } from '../type/poll';
 
 type DecryptionPayload = {
   values: number[];

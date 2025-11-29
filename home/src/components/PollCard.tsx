@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Poll, PollStatus } from '../types/poll';
+import type { Poll, PollStatus } from '../type/poll';
 import '../styles/Polls.css';
 
 type PollCardProps = {
