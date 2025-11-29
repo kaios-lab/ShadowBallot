@@ -6,16 +6,21 @@ import "@typechain/hardhat";
 import "hardhat-deploy";
 import "hardhat-gas-reporter";
 import type { HardhatUserConfig } from "hardhat/config";
-import { vars } from "hardhat/config";
 import "solidity-coverage";
+import * as dotenv from "dotenv";
 
 import "./tasks/accounts";
-import "./tasks/FHECounter";
+import "./tasks/shadowBallot";
+
+dotenv.config();
 
 // Run 'npx hardhat vars setup' to see the list of variables that need to be set
 
-const MNEMONIC: string = vars.get("MNEMONIC", "test test test test test test test test test test test junk");
-const INFURA_API_KEY: string = vars.get("INFURA_API_KEY", "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+const privateKey = process.env.PRIVATE_KEY ?? "";
+const normalizedPrivateKey =
+  privateKey.length > 0 ? (privateKey.startsWith("0x") ? privateKey : `0x${privateKey}`) : "";
+const configuredAccounts = normalizedPrivateKey.length > 0 ? [normalizedPrivateKey] : undefined;
+const infuraApiKey = process.env.INFURA_API_KEY ?? "";
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
@@ -24,7 +29,7 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: {
-      sepolia: vars.get("ETHERSCAN_API_KEY", ""),
+      sepolia: process.env.ETHERSCAN_API_KEY ?? "",
     },
   },
   gasReporter: {
@@ -34,28 +39,17 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      accounts: {
-        mnemonic: MNEMONIC,
-      },
       chainId: 31337,
     },
     anvil: {
-      accounts: {
-        mnemonic: MNEMONIC,
-        path: "m/44'/60'/0'/0/",
-        count: 10,
-      },
       chainId: 31337,
       url: "http://localhost:8545",
+      accounts: configuredAccounts,
     },
     sepolia: {
-      accounts: {
-        mnemonic: MNEMONIC,
-        path: "m/44'/60'/0'/0/",
-        count: 10,
-      },
+      accounts: configuredAccounts,
       chainId: 11155111,
-      url: `https://sepolia.infura.io/v3/${INFURA_API_KEY}`,
+      url: `https://sepolia.infura.io/v3/${infuraApiKey}`,
     },
   },
   paths: {
